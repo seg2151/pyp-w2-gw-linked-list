@@ -37,4 +37,8 @@ class LinkedList(AbstractLinkedList):
         pass
 
     def pop(self, index=None):
-        pass
+        length = len(self)
+        if length == 0 or index > length:
+            raise IndexError
+        else:
+            # pop it and return the popped element

@@ -29,7 +29,7 @@ class AbstractLinkedList(object):
         raise NotImplementedError()
 
     def __ne__(self, other):
-        raise NotImplementedError()
+        return not self == other
 
     def append(self, element):
         raise NotImplementedError()
