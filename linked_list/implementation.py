@@ -100,15 +100,17 @@ class LinkedList(AbstractLinkedList):
 
     def pop(self, index=None):
         length = len(self)
+        
         if length == 0 or ( length <= index):
             raise IndexError
-        elif not index:
+        elif index == None:
             index = length - 1 # set the index to the last item
 
+        # if index == 0 and length == 3:
+            # import ipdb; ipdb.set_trace()
         if index == 0: # remove first item
             element_to_return = self.start.elem
-            import ipdb; ipdb.set_trace()
-        
+            # 
             self.start = self.start.next # now LinkedList starts with the second node
             return element_to_return
         else:
