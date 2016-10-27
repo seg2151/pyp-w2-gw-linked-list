@@ -24,4 +24,4 @@ class Node(object):
         
 
     def __repr__(self):
-        pass
+        str(self)

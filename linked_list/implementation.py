@@ -57,7 +57,6 @@ class LinkedList(AbstractLinkedList):
             for ind,element in enumerate(self):
                 if ind - length == index: #defining relationship between negative index and positive index
                     return element
-            # pass
             # for idx, element in self.elements: 
                 # no idea how but gotta get the index + element somehow
                 # if idx == index:
@@ -100,7 +99,7 @@ class LinkedList(AbstractLinkedList):
 
     def pop(self, index=None):
         length = len(self)
-        if index == None:
+        if index == None: # default pop
             if length == 0:
                 raise IndexError 
             elif length == 1: # special case. default pop for single element list
@@ -109,15 +108,12 @@ class LinkedList(AbstractLinkedList):
                 return popped_off_element
             else:
                 index = length - 1 # set the index to the last item
-                #  index
         elif length <= index:
             raise IndexError
         elif index == 0: # special case, pop first element off the list
             popped_off_element = self.start.elem
             self.start = self.start.next # now LinkedList starts with the second node
             return popped_off_element
-            
-        # index = LinkedList.check_for_special_cases(self, length, index=None)
         
         current = self.start.next
         count = 1
@@ -131,23 +127,3 @@ class LinkedList(AbstractLinkedList):
                 previous = current
                 current = current.next
                 count += 1
-                
-    # def check_for_special_cases(self, length, index=None):
-       
-                
-'''
-        #else:
-            # unfortunately this returns an element grr
-            #for idx, node in enumerate(self):
-                #if idx == index-1: # since i gave 2, it will get the node at index 1, which is a node with element 6
-                    # node_to_edit = node # node is Node(6)
-                    # node_to_delete = node.next # node is Node(9)
-                    # node_to_point_to = node_to_delete.next # node is Node(12), also node_to_edit.next.next
-                    # node_to_edit.next = node_to_point_to # now Node(6) points to Node(12)
-                    # return node_to_delete.element'''
-            
-# list.pop(2)
-# node_to_edit = get_node(index-1) # so 
-# node_to_point_to = get_node(index+1) # since I gave 2, this will get the node at index 3. which is a node with element 12
-# node_to_edit.next = node_to_point_to # now I point list[1] to list[3], effectively bye-bye-ing the one with element 9
-            
