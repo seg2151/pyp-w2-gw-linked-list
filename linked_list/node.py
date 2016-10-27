@@ -18,7 +18,10 @@ class Node(object):
         
     # need to return something like "Node(9) > /"
     def __eq__(self, other):
-        return self.elem == other.elem
+        nodes_have_equal_values = self.elem == other.elem
+        next_nodes_have_equal_values = self.next == other.next
+        return nodes_have_equal_values and next_nodes_have_equal_values 
+        
 
     def __repr__(self):
         pass
