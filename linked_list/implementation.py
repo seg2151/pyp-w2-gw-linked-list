@@ -100,32 +100,40 @@ class LinkedList(AbstractLinkedList):
 
     def pop(self, index=None):
         length = len(self)
-        
-        if length == 0 or ( length <= index):
+        if index == None:
+            if length == 0:
+                raise IndexError 
+            elif length == 1: # special case. default pop for single element list
+                popped_off_element = self.start.elem
+                self.start = None
+                return popped_off_element
+            else:
+                index = length - 1 # set the index to the last item
+                #  index
+        elif length <= index:
             raise IndexError
-        elif index == None:
-            index = length - 1 # set the index to the last item
-
-        # if index == 0 and length == 3:
-            # import ipdb; ipdb.set_trace()
-        if index == 0: # remove first item
-            element_to_return = self.start.elem
-            # 
+        elif index == 0: # special case, pop first element off the list
+            popped_off_element = self.start.elem
             self.start = self.start.next # now LinkedList starts with the second node
-            return element_to_return
-        else:
-            current = self.start.next
-            count = 1
-            previous = self.start
-            while current:
-                if count == index:
-                    pop = current.elem
-                    previous.next = current.next
-                    return pop
-                else:
-                    previous = current
-                    current = current.next
-                    count += 1
+            return popped_off_element
+            
+        # index = LinkedList.check_for_special_cases(self, length, index=None)
+        
+        current = self.start.next
+        count = 1
+        previous = self.start
+        while current:
+            if count == index:
+                pop = current.elem
+                previous.next = current.next
+                return pop
+            else:
+                previous = current
+                current = current.next
+                count += 1
+                
+    # def check_for_special_cases(self, length, index=None):
+       
                 
 '''
         #else:

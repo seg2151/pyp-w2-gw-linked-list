@@ -6,7 +6,7 @@ PACKAGE=linked_list
 
 test:
 	@echo $(TAG)Running tests$(END)
-	PYTHONPATH=. py.test tests
+	PYTHONPATH=. py.test -s tests
 
 test-cov:
 	@echo $(TAG)Running tests with coverage$(END)

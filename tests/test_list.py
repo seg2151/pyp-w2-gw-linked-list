@@ -103,7 +103,6 @@ class LinkedListTestCase(unittest.TestCase):
         self.assertEqual(l1.count(), 0)
         self.assertEqual(l1, LinkedList([]))
 
-        # index == 0
         l1 = LinkedList([9])
 
         elem = l1.pop(0)
